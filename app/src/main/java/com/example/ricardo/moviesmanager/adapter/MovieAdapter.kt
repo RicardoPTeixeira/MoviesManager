@@ -40,7 +40,7 @@ class MoviesAdapter(
             println("Clicando so na imagem")
         }
         holder.itemView.setOnClickListener{
-            onMemberClickListener.onMovieClick(position)
+            onMemberClickListener.onMovieClick(movie)
         }
     }
 
