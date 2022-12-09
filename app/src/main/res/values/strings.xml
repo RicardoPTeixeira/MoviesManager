@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MoviesManager</string>
     <string name="adicionar_filme">Adicionar filme</string>
+    <string name="info">ⓘ</string>
 </resources>
