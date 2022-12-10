@@ -2,4 +2,20 @@
     <string name="app_name">MoviesManager</string>
     <string name="adicionar_filme">Adicionar filme</string>
     <string name="info">ⓘ</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="genero">Gênero</string>
+    <string name="nota">Nota</string>
+    <string name="assistido">Assistido</string>
+    <string name="duracao_em_minutos">Duração (minutos)</string>
+    <string name="produtora">Produtora</string>
+    <string name="ano_de_lancamento">Ano de lançamento</string>
+    <string name="nome">Nome</string>
+    <string-array name="genero">
+        <item> Ação </item>
+        <item> Terror </item>
+        <item> Aventura </item>
+        <item> Romance </item>
+        <item> Outro </item>
+    </string-array>
 </resources>
