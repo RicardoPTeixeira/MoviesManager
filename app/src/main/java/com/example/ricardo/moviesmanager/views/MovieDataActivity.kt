@@ -1,8 +1,8 @@
 package com.example.ricardo.moviesmanager.views
 
-import android.graphics.Movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.ricardo.moviesmanager.R
 import com.example.ricardo.moviesmanager.databinding.ActivityMovieDataBinding
@@ -20,16 +20,30 @@ class MovieDataActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(amdb.root)
 
+        amdb.assistidoCb.setOnCheckedChangeListener { compoundButton, b ->
+            if(!b) {
+                amdb.notaEt.visibility = View.GONE
+                amdb.notaTvForm.visibility = View.GONE
+            }
+            else {
+                amdb.notaEt.visibility = View.VISIBLE
+                amdb.notaTvForm.visibility = View.VISIBLE
+            }
+        }
+
         val mode = intent.getParcelableExtra<Modes>(Constants.MODE)
 
         if (mode == Modes.VIEW_OR_UPDATE) {
             val movie = intent.getParcelableExtra<Filme>(Constants.MOVIE) ?: return
-            amdb.nameEt.setText(movie.nome)
+            amdb.nameEt.setText(movie.name)
             amdb.anoEt.setText(movie.anoLancamento.toString())
             amdb.produtoraEt.setText(movie.produtora)
             amdb.duracaoEt.setText(movie.duracao.toString())
             amdb.assistidoCb.isChecked = movie.assistido
-            amdb.notaEt.setText(movie.nota.toString())
+            val nota = movie.nota
+            if(nota != null){
+                amdb.notaEt.setText(nota.toString())
+            }
             val stringArray = resources.getStringArray(R.array.genero)
             stringArray.forEachIndexed { index, s ->
                 if (movie.genero == s) amdb.generoSp.setSelection(index)
@@ -55,19 +69,25 @@ class MovieDataActivity : AppCompatActivity() {
         val produtora = amdb.produtoraEt.text.toString()
         val duracao = amdb.duracaoEt.text.toString().toInt()
         val assistido = amdb.assistidoCb.isChecked
-        val nota = amdb.notaEt.text.toString().toInt()
+        val nota = amdb.notaEt.text.toString()
+        var notaParaAtribuir: Int? = null
+        if(nota.isNotEmpty()) notaParaAtribuir = nota.toInt()
         val genero = amdb.generoSp.selectedItem.toString()
         val movie = Filme(
-            id = -1,
-            nome = name,
+            id = null,
+            name = name,
             anoLancamento = ano,
             produtora = produtora,
             duracao = duracao,
             assistido = assistido,
-            nota = nota,
+            nota = notaParaAtribuir,
             genero = genero
         )
-        println(movie.nome)
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.MOVIE,movie)
+        intent.putExtras(bundle)
+        setResult(RESULT_OK, intent)
+        finish()
     }
 
     private fun finishUpdate() {
@@ -78,19 +98,25 @@ class MovieDataActivity : AppCompatActivity() {
         val produtora = amdb.produtoraEt.text.toString()
         val duracao = amdb.duracaoEt.text.toString().toInt()
         val assistido = amdb.assistidoCb.isChecked
-        val nota = amdb.notaEt.text.toString().toInt()
+        val nota = amdb.notaEt.text.toString()
+        var notaParaAtribuir: Int? = null
+        if(nota.isNotEmpty()) notaParaAtribuir = nota.toInt()
         val genero = amdb.generoSp.selectedItem.toString()
         val movie = Filme(
             id = originalMovie.id,
-            nome = name,
+            name = name,
             anoLancamento = ano,
             produtora = produtora,
             duracao = duracao,
             assistido = assistido,
-            nota = nota,
+            nota = notaParaAtribuir,
             genero = genero
         )
-        println(movie.nome)
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.MOVIE,movie)
+        intent.putExtras(bundle)
+        setResult(RESULT_OK, intent)
+        finish()
     }
 
     private fun validateBeforeFinish(): Boolean {
@@ -106,11 +132,11 @@ class MovieDataActivity : AppCompatActivity() {
         val produtora = amdb.produtoraEt.text.toString()
         val duracao = amdb.duracaoEt.text.toString()
         val nota = amdb.notaEt.text.toString()
+        if (amdb.assistidoCb.isChecked && nota.isEmpty()) return false
         if (name.isEmpty()) return false
         if (ano.isEmpty()) return false
         if (produtora.isEmpty()) return false
         if (duracao.isEmpty()) return false
-        if (nota.isEmpty()) return false
         return true
     }
 

@@ -5,5 +5,5 @@ import com.example.ricardo.moviesmanager.models.Filme
 interface OnMovieClickListener {
 
     fun onMovieClick(filme: Filme)
-    fun onMovieRemove(id: Int)
+    fun onMovieRemove(filme: Filme)
 }

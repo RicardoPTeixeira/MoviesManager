@@ -78,26 +78,6 @@
             android:ems="10"
             android:inputType="number" />
 
-        <CheckBox
-            android:id="@+id/assistidoCb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/assistido" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/nota" />
-
-        <EditText
-            android:id="@+id/notaEt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number" />
 
         <TextView
             android:id="@+id/textView7"
@@ -105,7 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/genero" />
-
         <Spinner
             android:id="@+id/generoSp"
             android:layout_width="match_parent"
@@ -114,6 +93,29 @@
             android:entries="@array/genero"
             android:minHeight="48dp"
             android:padding="5dp" />
+        <CheckBox
+            android:id="@+id/assistidoCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/assistido" />
+
+        <TextView
+            android:id="@+id/notaTvForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="@string/nota" />
+
+        <EditText
+            android:id="@+id/notaEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:visibility="gone"
+            android:inputType="number" />
+
 
     </LinearLayout>
 

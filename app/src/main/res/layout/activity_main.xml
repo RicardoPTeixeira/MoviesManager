@@ -17,10 +17,34 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="@color/design_default_color_secondary"
         android:contentDescription="@string/adicionar_filme"
         android:src="@drawable/add"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/orderByNameBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:contentDescription="@string/adicionar_filme"
+        android:src="@drawable/ic_order_by_text"
+        app:layout_constraintBottom_toTopOf="@+id/addBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/orderByNotaBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:contentDescription="@string/adicionar_filme"
+        android:src="@drawable/ic_order_by_nota"
+        app:layout_constraintBottom_toTopOf="@+id/orderByNameBt"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

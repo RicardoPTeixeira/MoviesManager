@@ -5,12 +5,13 @@ import com.example.ricardo.moviesmanager.models.Filme
 class OrdenadorFilme {
 
     fun ordenarPorNome(list : MutableList<Filme>): MutableList<Filme> {
-        list.sortBy { it.nome }
+        list.sortBy { it.name }
         return list
     }
 
     fun ordenarPorNota(list : MutableList<Filme>): MutableList<Filme> {
         list.sortBy { it.nota }
+        list.reverse()
         return list
     }
 }
