@@ -18,4 +18,5 @@
         <item> Romance </item>
         <item> Outro </item>
     </string-array>
+    <string name="fill_all_fields">All fields must be filled!</string>
 </resources>

@@ -45,7 +45,13 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
     }
 
-    override fun onMovieClick(id: Int) {
+    override fun onMovieClick(filme: Filme) {
+        val intent = Intent(Constants.MOVIE_DATA_ACTIVITY)
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.MODE, Modes.VIEW_OR_UPDATE)
+        bundle.putParcelable(Constants.MOVIE, filme)
+        intent.putExtras(bundle)
+        movieARL.launch(intent)
     }
 
     override fun onMovieRemove(id: Int) {

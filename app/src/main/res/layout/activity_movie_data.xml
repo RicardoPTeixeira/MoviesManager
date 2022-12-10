@@ -26,7 +26,7 @@
             android:text="@string/nome" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/nameEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -41,7 +41,7 @@
             android:text="@string/ano_de_lancamento" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/anoEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,7 +56,7 @@
             android:text="@string/produtora" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/produtoraEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -71,7 +71,7 @@
             android:text="@string/duracao_em_minutos" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/duracaoEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,6 +79,7 @@
             android:inputType="number" />
 
         <CheckBox
+            android:id="@+id/assistidoCb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/assistido" />
@@ -91,7 +92,7 @@
             android:text="@string/nota" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/notaEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -106,7 +107,7 @@
             android:text="@string/genero" />
 
         <Spinner
-            android:id="@+id/formacao_spinner"
+            android:id="@+id/generoSp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
